@@ -18,4 +18,9 @@ test_graph.add_vertex(four)
 test_graph.add_vertex(five)
 test_graph.add_vertex(six)
 
+dictionary = {}
+
+for vertex, edges in test_graph.graph_dict.items():
+    edges = list(edges.edges.keys())
+    dictionary[vertex] = edges 
 
