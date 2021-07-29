@@ -8,9 +8,11 @@ def dfs(graph, current_vertex, target, visited=None):
         return visited 
     else:
         for neighbour in graph[current_vertex]:
+            print(visited)
             if not neighbour in visited:
                 path = dfs(graph, neighbour, target, visited)
 
                 if path:
                     return path
+    
             
