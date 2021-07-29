@@ -43,4 +43,3 @@ for vertex, edges in test_graph.graph_dict.items():
     edges = list(edges.edges.keys())
     dictionary[vertex] = edges 
 
-print(dictionary)
