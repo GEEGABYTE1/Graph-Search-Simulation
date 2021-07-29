@@ -7,6 +7,7 @@ def bfs(graph, start_vertex, target):
     visited = set()
     
     while bfs_queue:
+        
         current_vertex, path = bfs_queue.pop()
         visited.add(current_vertex)
 

@@ -28,23 +28,62 @@ class Script:
             for key, value in self.dictionary.items():
                 print(str(key) + ' ---> ' + str(value))
         elif prompt == 2:
+            self.bfs_implementation()
+
+        elif prompt == 3:
             print('Please enter a number that is between 1 and 6')
             player = True
             while player:
                 start = int(input('Enter a number you want to start the path with: '))
-                if start >= 6:
+                if start > 6:
                     print("That does not seem like a valid number")
                 else:
                     break 
             while player:
-                end = int(input('Enter a number you would like to find a path to'))
-                if end >= 6:
+                end = int(input('Enter a number you would like to find a path to: '))
+                if end > 6:
                     print('That does not seem like a valid number ')
                 else:
-                    break 
+                    break
             
-            print(bfs(dictionary, start, end))
-                  
+            print(dfs(self.dictionary, start, end))
+
+    def bfs_implementation(self):
+        print('Please enter a number that is between 1 and 6')
+        player = True
+        while player:
+            start = int(input('Enter a number you want to start the path with: '))
+            if start > 6:
+                print("That does not seem like a valid number")
+            else:
+                break 
+        while player:
+            end = int(input('Enter a number you would like to find a path to: '))
+            if end > 6:
+                print('That does not seem like a valid number ')
+            else:
+                break 
+        
+        print(bfs(self.dictionary, start, end))
+        print()
+        time.sleep(0.1)
+        
+        running = True
+        while running:
+            prompt2 = input("Would you like to see another path? Enter y/n: ")
+
+            if prompt2 == 'y':
+                current_edge = self.dictionary[start]
+                self.dictionary[start].pop(0)
+                output = bfs(self.dictionary, start, end)
+                if output == None:
+                    break 
+                else:
+                    print(output)
+            else:
+                break
+
+            
             
 
             
